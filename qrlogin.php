@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: QR - Login
-Version: 0.1.5
+Version: 0.1.6
 Plugin URI: https://github.com/jellmaier/qrlogin
 Description: Login via QR - Code
 Author: Jakob Ellmaier
@@ -38,7 +38,7 @@ function qrl_user_login_render() {
     <form method="post" action="">
       <p><label>Login Token:   </label><input type="text" disabled value="<?= get_user_meta(get_current_user_id(), 'qrl-token', true) ?>"/>
       <input type="submit" id="reset-token" value="Renew Token"></p>
-      <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=<?= bloginfo('url'); ?>/wordpress/?token=<?= get_user_meta(get_current_user_id(), 'qrl-token', true)?>">
+      <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=<?= bloginfo('url'); ?>/?token=<?= get_user_meta(get_current_user_id(), 'qrl-token', true)?>">
     </form>      
   </div>
   <?php
