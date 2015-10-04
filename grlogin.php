@@ -87,6 +87,6 @@ function qrl_login() {
     } 
   } 
 }
-add_action( 'init', 'qrl_login' );
+add_action( 'after_setup_theme', 'qrl_login' );
 
 ?>
