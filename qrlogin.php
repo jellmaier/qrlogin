@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: QR - Login
-Version: 0.1.4
+Version: 0.1.5
 Plugin URI: https://github.com/jellmaier/qrlogin
 Description: Login via QR - Code
 Author: Jakob Ellmaier
@@ -58,10 +58,8 @@ add_action( 'wp_ajax_reset_token', 'reset_token' );
 // Login via url
 //--------------------------------------------------------
 function qrl_login() {
-
-  if( isset( $_GET['token'] ) ){
+  if(isset( $_GET['token'] ) ){
     $token = sanitize_key( $_GET['token'] );
-
     $args = array(
       'meta_key'     => 'qrl-token',
       'meta_value'   => $token,
@@ -69,7 +67,6 @@ function qrl_login() {
     $user_query = new WP_User_Query($args);
     // Get the results
     $users = $user_query->get_results();
-
     // Check for results
     if (count($users) == 1 && !empty($token)) {
       foreach ($users as $user)
@@ -81,12 +78,12 @@ function qrl_login() {
             wp_set_current_user( $user_id, $user->user_login );
             wp_set_auth_cookie( $user_id );
             do_action( 'wp_login', $user->user_login );
-            wp_redirect( bloginfo('url') . '/wordpress/get-ticket/' ); exit;
+            //wp_redirect( bloginfo('url') . '/wordpress/get-ticket/' ); exit;
         }
       }
     } 
   } 
 }
-add_action( 'registered_taxonomy', 'qrl_login' );
+add_action( 'init', 'qrl_login' );
 
 ?>
