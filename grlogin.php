@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: QR - Login
-Version: 0.1.3
+Version: 0.1.4
 Plugin URI: https://github.com/jellmaier/qrlogin
 Description: Login via QR - Code
 Author: Jakob Ellmaier
@@ -87,6 +87,6 @@ function qrl_login() {
     } 
   } 
 }
-add_action( 'plugins_loaded', 'qrl_login' );
+add_action( 'registered_taxonomy', 'qrl_login' );
 
 ?>
