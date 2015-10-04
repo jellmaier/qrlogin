@@ -6,10 +6,11 @@ Plugin URI: https://github.com/jellmaier/qrlogin
 Description: Login via QR - Code
 Author: Jakob Ellmaier
 Author URI: http://medienbausatz.at
-GitHub Plugin URI: https://github.com/jellmaier/grlogin
+GitHub Plugin URI: https://github.com/jellmaier/qrlogin
 GitHub Branch:     master
 Licence: GP2
 */
+
 
 
 function script_enqueue($hook_suffix) {
